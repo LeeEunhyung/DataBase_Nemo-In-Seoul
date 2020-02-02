@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/addplacecss.css">
+    <title>Document</title>
+</head>
+<body>
+        <div id="title">
+                <center>
+                    <p id="sitetitle">Add place!</p>
+                </center>
+            </div>
+        
+            <div id="loginform">
+                    <center>
+                <form id="form" action="./php/addplacephp.php" method="post">
+                        <input name="place_name" type="text" placeholder="* place name">
+                        <br>
+                        <input name="address" type="text" placeholder="* address">
+                        <br>
+                        <input name="cost" type="text" placeholder="cost(원)">
+                        <br>
+                        <input name="taking_time" type="text" placeholder="* taking time(hours)　　　　ex) 3">
+                        <br>
+                        <input name="open_time" type="text" placeholder="open time　　　　　　　ex) 13:00">
+                        <br>
+                        <input name="close_time" type="text" placeholder="close time">
+                        <br>
+                        <input id="submit" type="submit" value="add place">  
+                </form>
+                <p><b>* 은 필수 항목입니다!</p>
+            </center>
+            </div>
+</body>
+</html>

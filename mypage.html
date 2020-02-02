@@ -1,0 +1,117 @@
+<?
+include './php/dbconn.php';
+mysqli_set_charset($conn, 'utf8');
+session_start();
+
+$sql = "select * from member where member_id = '".$_SESSION['member_id']."'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_assoc($result);
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="./styles/mypagecss.css">
+  <title>Mypage</title>
+</head>
+<body>
+  <header>
+    <div>
+      <p><b>　　안녕하세요, <? echo $_SESSION['member_name'] ?>님! :)</b></p>
+    </div>
+    <div id="headerbut">
+      <div><p class="header_b"><b><a href="./search.html">Search</a></b></div>
+      <div><p class="header_b"><b><a href="./php/wishlistphp.php">Wishlist</a></b></p></div>
+      <div><p class="header_b"><b><a href="./mypage.html">Mypage</a></b></p></div>
+      <div><p class="header_b"><b><a href="./php/logoutphp.php">Logout</a></b></p></div>
+    </div>
+  </header>
+  <main>
+  <div id="title">
+    <center>
+      <p id="sitetitle">My page</p>
+    </center>
+  </div>
+
+  <div id="modifyInfo">
+    <center>
+      <form id="form" action="./php/mypagephp.php" method="post">
+        <p>- 회원 정보 수정 -</p>
+        <input id="name" name="name" type="text" placeholder="<? echo $_SESSION['member_name'] ?>">
+        <br>
+        <input id="passwd" name="passwd" type="text" placeholder="Password">
+        <br>
+        <input id="birthday" name="birthday" type="text" placeholder="<? echo $row['birthday'] ?>">
+        <br>
+        <input id="submit" type="submit" value="save">
+      </form>
+    </center>
+
+    <div id="notice">
+      <center>
+        <?
+        $sql = "select * from membership where level = '".$row['level']."'";
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+          while ($row_notice = mysqli_fetch_assoc($result)) {
+            printf("%s 님은 %s 단계입니다.<br>", $_SESSION['member_id'], $row['level']);
+            printf("%s 단계는 %s를(을) 받을 수 있습니다.<br>", $row['level'], $row_notice['benefit']);
+          }
+        }
+        ?>
+      </center>
+    </div>
+
+    <div id="placelist">
+      <form action="./php/delete_placephp.php" method="post">
+        <p>- 정보 등록한 장소 리스트 -</p>
+        <?
+        $sql = "select * from place where member_id ='".$_SESSION['member_id']."'";
+        $result = mysqli_query($conn, $sql);
+
+        if($result) {
+          $cnt = 1;
+          while($row = mysqli_fetch_assoc($result)) {
+            printf("<br>%d. %s %d호선", $cnt, $row['place_name'], $row['subway']);
+        ?>
+            <input type = "radio" name = "delete" value = "<? echo $row['place_name'] ?>"><span class="up"></span>
+            <?
+            $cnt = $cnt+1;
+          }
+        }
+        ?>
+        <br>
+        <input type="submit" value="delete">
+
+      </form>
+    </div>
+
+    <div id="reviewlist">
+      <form action="./php/delete_reviewphp.php" method="post">
+        <p>- 리뷰를 남긴 장소 리스트 -</p>
+        <?
+        $sql = "select * from review where member_id ='".$_SESSION['member_id']."'";
+        $result = mysqli_query($conn, $sql);
+
+        if($result) {
+          $cnt = 1;
+          while($row = mysqli_fetch_assoc($result)) {
+            printf("<br>%d. %s  \"%s\"", $cnt, $row['place_name'], $row['contents']);
+        ?>
+            <input type = "radio" name = "delete" value = "<? echo $row['place_name'] ?>"><span class="up"></span><br>
+            <?
+            $cnt = $cnt+1;
+          }
+        }
+        ?>
+        <br>
+        <input type="submit" value="delete">
+      </form>
+    </div>
+
+    </main>
+  </div>
+</body>
+</html>

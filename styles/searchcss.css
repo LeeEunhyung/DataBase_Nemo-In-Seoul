@@ -1,0 +1,125 @@
+html
+{
+    margin: 0;
+    height: 100%;
+}
+
+body
+{
+    margin: 0;
+    height: 100%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #FFB85A;
+}
+#headerbut {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+#profile_block {
+    background-color: white;
+    width: 30%;
+    display: grid;
+    grid-template-rows: 5fr 2fr;
+    border: solid;
+    border-color: white;
+    border-radius: 15px 15px 15px 15px;
+}
+
+header
+{
+    margin: 0;
+    width: 100%;
+    height: 9%;
+    border-bottom-style: solid;
+    color: black;
+    border-width: 1px;
+    background-color:white;
+    border-color: white;
+    position:fixed;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+main {
+    margin-top: 6%;
+    margin-bottom: 6%;
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 1fr 4fr;
+}
+#search {
+    display: grid;
+    grid-template-columns: 4fr 6fr 1fr;
+}
+
+#info {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+#subway {
+    font-size: 30px;
+    position: relative;
+    top: 13%;
+    left: 50%;
+    width: 80%;
+    height: 40%;
+}
+
+form {
+    height: 90%;
+}
+
+#sitetitle
+{
+    font-family: 'Impact';
+    font-size: 100px;
+    margin-top: 2%;
+    color: #FF7012;
+}
+
+#click {
+  font-size: 30px;
+  position: relative;
+  top: 13%;
+  right: 140%;
+  width: 80%;
+  height: 40%;
+}
+
+.header_b {
+    
+    cursor: pointer;
+}
+
+p {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+b {
+    cursor: pointer;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+}
+
+#click {
+    margin-top: 30px;
+    width: 100px;
+    height: 50px;
+    font-size: 30px;
+    background-color: #FFB85A;
+    border: none;
+    color: red;
+    cursor: pointer;
+}

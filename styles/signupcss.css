@@ -1,0 +1,77 @@
+html
+{
+    height: 100%;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100%;
+    background: #FFB85A;
+}
+
+#title
+{
+    height: 20%;
+}
+
+#sitetitle
+{
+    font-family: 'Impact';
+    font-size: 100px;
+    margin: 0 auto;
+    color: #FF7012;
+}
+
+#loginform
+{
+    position: relative;
+    left: 37%;
+    display: block;
+    width: 25%;
+    height: 70%;
+    border:solid;
+    background-color:white;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+#submit
+{
+    height: 40px;
+    cursor: pointer;
+    background-color: #FF7012;
+    color: white;
+
+    border:solid;
+    border-color: white;
+    border-radius: 15px 15px 15px 15px;
+}
+
+input
+{
+    margin-bottom: 3%;
+    height: 35px;
+    width: 60%;
+}
+
+#form
+{
+    margin-top: 19%;
+}
+
+p
+{
+    margin: 0 auto;
+    cursor: pointer;
+    font-size: 12px;
+    color:red;
+}
+
+a
+{
+    text-decoration: none;
+}

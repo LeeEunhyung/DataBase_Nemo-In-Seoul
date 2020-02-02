@@ -1,0 +1,105 @@
+html
+{
+    margin: 0;
+    height: 100%;
+}
+
+body
+{
+    margin: 0;
+    height: 100%;
+    background-color: white;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #FFB85A;
+}
+
+
+#headerbut {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.header_b {
+    margin-top: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+}
+
+#title {
+    height: 20%;
+}
+
+#sitetitle {
+    font-family: 'Impact';
+    font-size: 100px;
+    margin: 0 auto;
+    color: #FF7012;
+}
+
+#modifyInfo {
+    position: relative;
+    left: 37%;
+    display: block;
+    width: 25%;
+    height: 70%;
+    border:solid;
+    background-color:white;
+    border-color: white;
+    border-width: 2px;
+    border-radius: 15px 15px 15px 15px;
+}
+
+#submit {
+    height: 40px;
+    cursor: pointer;
+    background-color: #FF7012;
+    color: white;
+
+    border:solid;
+    border-color: white;
+    border-radius: 15px 15px 15px 15px;
+}
+
+input {
+    margin-bottom: 3%;
+    height: 35px;
+    width: 60%;
+}
+
+select {
+  width: 60%;
+  height: 35px;
+  margin-bottom: 3%;
+}
+
+#form {
+}
+main {
+  display: grid;
+  grid-template-rows: 1fr 4fr 2fr;
+  margin-top: 10%;
+}
+header
+{
+    margin: 0;
+    width: 100%;
+    height: 9%;
+    border-bottom-style: solid;
+    color: black;
+    border-width: 1px;
+    background-color:white;
+    border-color: white;
+    position:fixed;
+    z-index: 1;
+
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}

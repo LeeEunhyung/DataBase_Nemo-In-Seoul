@@ -1,0 +1,35 @@
+<?
+include './php/dbconn.php';
+mysqli_set_charset($conn, 'utf8');
+session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/addplacecss.css">
+    <title>Document</title>
+</head>
+<body>
+        <div id="title">
+                <center>
+                    <p id="sitetitle">Add Review!</p>
+                </center>
+            </div>
+        
+            <div id="loginform">
+                    <center>
+                <form id="form" action="./php/addreviewphp.php" method="post">
+                        <b class="text">* 작성자:  <? echo $_SESSION['member_name'] ?> (<? echo $_SESSION['member_id'] ?>)</b>
+                        <br><br>
+                        <b class="text">* 리뷰를 남길 장소: <? echo $_SESSION['place'] ?> (<? echo $_SESSION['subway'] ?>호선)</b>
+                        <br><br>
+                        <textarea name="contents" id="contents" cols=50 rows="11" placeholder="Please enter your review within 50 characters!"></textarea>
+                        <br><br>
+                        <input id="submit" type="submit" value="add place">
+                </form>
+                <br><p><b>리뷰 삭제는 Mypage에서 가능합니다.</b></p>
+            </center>
+            </div>
+</body>
+</html>

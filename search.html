@@ -1,0 +1,74 @@
+<?
+include './php/dbconn.php';
+session_start();
+
+mysqli_set_charset($conn, 'utf8');
+
+$sql = "select * from member where member_id='".$_SESSION['member_id']."'";
+$result = mysqli_query($conn, $sql);
+$row = mysqli_fetch_row($result);
+$_SESSION['member_name'] = $row[1];
+$_SESSION['level'] = $row[5];
+$_SESSION['point'] = $row[4];
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./styles/searchcss.css">
+    <title>search</title>
+</head>
+<body>
+  <form id="form" action="./php/resultphp.php" method="post">
+    <header>
+       <div>
+            <p><b>　　안녕하세요, <? echo $_SESSION['member_name'] ?>님! :)</b></p>
+
+        </div>
+       <div id="headerbut">
+           <div><p class="header_b"><b><a href="../search.html">Search</a></b></div>
+            <div><p class="header_b"><b><a href="./php/wishlistphp.php">Wishlist</a></b></p></div>
+            <div><p class="header_b"><b><a href="./mypage.html">Mypage</a></b></p></div>
+           <div><p class="header_b"><b><a href="./php/logoutphp.php">Logout</a></b></p></div>
+       </div>
+    </header>
+    <main>
+        <div id="search">
+          <div>
+                <select id="subway" name="subway">
+                    <option value="" selected> - 호선을 선택하세요! -
+                    <option value="1"> 1호선
+                    <option value="2"> 2호선
+                    <option value="3"> 3호선
+                    <option value="4"> 4호선
+                    <option value="5"> 5호선
+                    <option value="6"> 6호선
+                    <option value="7"> 7호선
+                    <option value="8"> 8호선
+                    <option value="9"> 9호선
+                </select>
+        </div>
+            <div><center><p id="sitetitle">in seoul</p></center></div>
+            <div><input id="click" type="submit" value="click!"></div>
+            
+        </div>
+        <center>
+                <div id="profile_block">
+                    <div>
+                        <img src="./images/profile.png" width="260px;">
+                    </div>
+                    <div id="info">
+                        <div><b>* Id: <? echo $_SESSION['member_id'] ?></b></div>
+                        <div><b>* Name: <? echo $_SESSION['member_name'] ?></b></div>
+                        <div><b>* Point: <? echo $_SESSION['point'] ?></b></div>
+                        <div><b>* Level: <? echo $_SESSION['level'] ?></b></div>
+                    </div>
+                </div>    
+    
+                </div>
+            </center>
+    </main>
+  </form>
+</body>
+</html>
